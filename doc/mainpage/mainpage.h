@@ -1,6 +1,6 @@
 /**
  * @mainpage  LibDriver LAN8720
- * @brief     libdriver lan8720 is a full function driver of lan8720 and it can run in both MCU and Linux platform.
+ * @brief     LibDriver LAN8720 is a full function driver of LAN8720 and it can run in both MCU and Linux platform.
  * @version   1.0.0
  * @author    Shifeng Li
  *
