@@ -52,7 +52,7 @@ extern "C"{
 
 /**
  * @brief     register test
- * @param[in] addr is the device address
+ * @param[in] addr device address
  * @return    status code
  *            - 0 success
  *            - 1 test failed

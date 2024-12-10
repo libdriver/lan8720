@@ -218,80 +218,80 @@ typedef struct lan8720_info_s
 
 /**
  * @brief     initialize lan8720_handle_t structure
- * @param[in] HANDLE points to an lan8720 handle structure
- * @param[in] STRUCTURE is lan8720_handle_t
+ * @param[in] HANDLE pointer to an lan8720 handle structure
+ * @param[in] STRUCTURE lan8720_handle_t
  * @note      none
  */
 #define DRIVER_LAN8720_LINK_INIT(HANDLE, STRUCTURE)           memset(HANDLE, 0, sizeof(STRUCTURE))
 
 /**
  * @brief     link smi_init function
- * @param[in] HANDLE points to an lan8720 handle structure
- * @param[in] FUC points to an smi_init function address
+ * @param[in] HANDLE pointer to an lan8720 handle structure
+ * @param[in] FUC pointer to an smi_init function address
  * @note      none
  */
 #define DRIVER_LAN8720_LINK_SMI_INIT(HANDLE, FUC)            (HANDLE)->smi_init = FUC
 
 /**
  * @brief     link smi_deinit function
- * @param[in] HANDLE points to an lan8720 handle structure
- * @param[in] FUC points to an smi_deinit function address
+ * @param[in] HANDLE pointer to an lan8720 handle structure
+ * @param[in] FUC pointer to an smi_deinit function address
  * @note      none
  */
 #define DRIVER_LAN8720_LINK_SMI_DEINIT(HANDLE, FUC)          (HANDLE)->smi_deinit = FUC
 
 /**
  * @brief     link smi_read function
- * @param[in] HANDLE points to an lan8720 handle structure
- * @param[in] FUC points to an smi_read function address
+ * @param[in] HANDLE pointer to an lan8720 handle structure
+ * @param[in] FUC pointer to an smi_read function address
  * @note      none
  */
 #define DRIVER_LAN8720_LINK_SMI_READ(HANDLE, FUC)            (HANDLE)->smi_read = FUC
 
 /**
  * @brief     link smi_write function
- * @param[in] HANDLE points to an lan8720 handle structure
- * @param[in] FUC points to an smi_write function address
+ * @param[in] HANDLE pointer to an lan8720 handle structure
+ * @param[in] FUC pointer to an smi_write function address
  * @note      none
  */
 #define DRIVER_LAN8720_LINK_SMI_WRITE(HANDLE, FUC)           (HANDLE)->smi_write = FUC
 
 /**
  * @brief     link reset_gpio_init function
- * @param[in] HANDLE points to an lan8720 handle structure
- * @param[in] FUC points to a reset_gpio_init function address
+ * @param[in] HANDLE pointer to an lan8720 handle structure
+ * @param[in] FUC pointer to a reset_gpio_init function address
  * @note      none
  */
 #define DRIVER_LAN8720_LINK_RESET_GPIO_INIT(HANDLE, FUC)     (HANDLE)->reset_gpio_init = FUC
 
 /**
  * @brief     link reset_gpio_deinit function
- * @param[in] HANDLE points to an lan8720 handle structure
- * @param[in] FUC points to a reset_gpio_deinit function address
+ * @param[in] HANDLE pointer to an lan8720 handle structure
+ * @param[in] FUC pointer to a reset_gpio_deinit function address
  * @note      none
  */
 #define DRIVER_LAN8720_LINK_RESET_GPIO_DEINIT(HANDLE, FUC)   (HANDLE)->reset_gpio_deinit = FUC
 
 /**
  * @brief     link reset_gpio_write function
- * @param[in] HANDLE points to an lan8720 handle structure
- * @param[in] FUC points to a reset_gpio_write function address
+ * @param[in] HANDLE pointer to an lan8720 handle structure
+ * @param[in] FUC pointer to a reset_gpio_write function address
  * @note      none
  */
 #define DRIVER_LAN8720_LINK_RESET_GPIO_WRITE(HANDLE, FUC)    (HANDLE)->reset_gpio_write = FUC
 
 /**
  * @brief     link delay_ms function
- * @param[in] HANDLE points to an lan8720 handle structure
- * @param[in] FUC points to a delay_ms function address
+ * @param[in] HANDLE pointer to an lan8720 handle structure
+ * @param[in] FUC pointer to a delay_ms function address
  * @note      none
  */
 #define DRIVER_LAN8720_LINK_DELAY_MS(HANDLE, FUC)            (HANDLE)->delay_ms = FUC
 
 /**
  * @brief     link debug_print function
- * @param[in] HANDLE points to an lan8720 handle structure
- * @param[in] FUC points to a debug_print function address
+ * @param[in] HANDLE pointer to an lan8720 handle structure
+ * @param[in] FUC pointer to a debug_print function address
  * @note      none
  */
 #define DRIVER_LAN8720_LINK_DEBUG_PRINT(HANDLE, FUC)         (HANDLE)->debug_print = FUC
@@ -309,7 +309,7 @@ typedef struct lan8720_info_s
 
 /**
  * @brief      get chip's information
- * @param[out] *info points to an lan8720 info structure
+ * @param[out] *info pointer to an lan8720 info structure
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -319,8 +319,8 @@ uint8_t lan8720_info(lan8720_info_t *info);
 
 /**
  * @brief     set the chip address
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] addr is the chip address
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] addr chip address
  * @return    status code
  *            - 0 success
  *            - 2 handle is NULL
@@ -331,8 +331,8 @@ uint8_t lan8720_set_address(lan8720_handle_t *handle, uint8_t addr);
 
 /**
  * @brief      get the chip address
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *addr points to a chip address
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *addr pointer to a chip address
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -342,7 +342,7 @@ uint8_t lan8720_get_address(lan8720_handle_t *handle, uint8_t *addr);
 
 /**
  * @brief     initialize the chip
- * @param[in] *handle points to an lan8720 handle structure
+ * @param[in] *handle pointer to an lan8720 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 smi initialization failed
@@ -355,7 +355,7 @@ uint8_t lan8720_init(lan8720_handle_t *handle);
 
 /**
  * @brief     close the chip
- * @param[in] *handle points to an lan8720 handle structure
+ * @param[in] *handle pointer to an lan8720 handle structure
  * @return    status code
  *            - 0 success
  *            - 1 smi deinit failed
@@ -368,8 +368,8 @@ uint8_t lan8720_deinit(lan8720_handle_t *handle);
 
 /**
  * @brief     enable or disable soft reset
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set soft reset failed
@@ -381,8 +381,8 @@ uint8_t lan8720_set_soft_reset(lan8720_handle_t *handle, lan8720_bool_t enable);
 
 /**
  * @brief      get soft reset status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get soft reset failed
@@ -394,8 +394,8 @@ uint8_t lan8720_get_soft_reset(lan8720_handle_t *handle, lan8720_bool_t *enable)
 
 /**
  * @brief     enable or disable loop back
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set loop back failed
@@ -407,8 +407,8 @@ uint8_t lan8720_set_loop_back(lan8720_handle_t *handle, lan8720_bool_t enable);
 
 /**
  * @brief      get loop back status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get loop back failed
@@ -420,8 +420,8 @@ uint8_t lan8720_get_loop_back(lan8720_handle_t *handle, lan8720_bool_t *enable);
 
 /**
  * @brief     set speed select
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] speed is the set speed
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] speed set speed
  * @return    status code
  *            - 0 success
  *            - 1 set speed select failed
@@ -433,8 +433,8 @@ uint8_t lan8720_set_speed_select(lan8720_handle_t *handle, lan8720_speed_t speed
 
 /**
  * @brief      get speed select status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *speed points to a speed buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *speed pointer to a speed buffer
  * @return     status code
  *             - 0 success
  *             - 1 get speed select failed
@@ -446,8 +446,8 @@ uint8_t lan8720_get_speed_select(lan8720_handle_t *handle, lan8720_speed_t *spee
 
 /**
  * @brief     enable or disable auto negotiation
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set auto negotiation failed
@@ -459,8 +459,8 @@ uint8_t lan8720_set_auto_negotiation(lan8720_handle_t *handle, lan8720_bool_t en
 
 /**
  * @brief      get auto negotiation status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation failed
@@ -472,8 +472,8 @@ uint8_t lan8720_get_auto_negotiation(lan8720_handle_t *handle, lan8720_bool_t *e
 
 /**
  * @brief     enable or disable power down
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set power down failed
@@ -485,8 +485,8 @@ uint8_t lan8720_set_power_down(lan8720_handle_t *handle, lan8720_bool_t enable);
 
 /**
  * @brief      get power down status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get power down failed
@@ -498,8 +498,8 @@ uint8_t lan8720_get_power_down(lan8720_handle_t *handle, lan8720_bool_t *enable)
 
 /**
  * @brief     enable or disable electrical isolation
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set electrical isolation failed
@@ -511,8 +511,8 @@ uint8_t lan8720_set_electrical_isolation(lan8720_handle_t *handle, lan8720_bool_
 
 /**
  * @brief      get electrical isolation status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get electrical isolation failed
@@ -524,8 +524,8 @@ uint8_t lan8720_get_electrical_isolation(lan8720_handle_t *handle, lan8720_bool_
 
 /**
  * @brief     enable or disable restart auto negotiate
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set restart auto negotiate failed
@@ -537,8 +537,8 @@ uint8_t lan8720_set_restart_auto_negotiate(lan8720_handle_t *handle, lan8720_boo
 
 /**
  * @brief      get restart auto negotiate status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get restart auto negotiate failed
@@ -550,8 +550,8 @@ uint8_t lan8720_get_restart_auto_negotiate(lan8720_handle_t *handle, lan8720_boo
 
 /**
  * @brief     set duplex mode
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] mode is the set mode
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] mode set mode
  * @return    status code
  *            - 0 success
  *            - 1 set duplex mode failed
@@ -563,8 +563,8 @@ uint8_t lan8720_set_duplex_mode(lan8720_handle_t *handle, lan8720_duplex_t mode)
 
 /**
  * @brief      get duplex mode
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *mode points to a mode buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *mode pointer to a mode buffer
  * @return     status code
  *             - 0 success
  *             - 1 get duplex mode failed
@@ -576,8 +576,8 @@ uint8_t lan8720_get_duplex_mode(lan8720_handle_t *handle, lan8720_duplex_t *mode
 
 /**
  * @brief      get 100base t4 status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get 100base t4 failed
@@ -589,8 +589,8 @@ uint8_t lan8720_get_100base_t4(lan8720_handle_t *handle, lan8720_bool_t *enable)
 
 /**
  * @brief      get 100base tx full duplex status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get 100base tx full duplex failed
@@ -602,8 +602,8 @@ uint8_t lan8720_get_100base_tx_full_duplex(lan8720_handle_t *handle, lan8720_boo
 
 /**
  * @brief      get 100base tx half duplex status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get 100base tx half duplex failed
@@ -615,8 +615,8 @@ uint8_t lan8720_get_100base_tx_half_duplex(lan8720_handle_t *handle, lan8720_boo
 
 /**
  * @brief      get 10base t full duplex status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get 10base t full duplex failed
@@ -628,8 +628,8 @@ uint8_t lan8720_get_10base_t_full_duplex(lan8720_handle_t *handle, lan8720_bool_
 
 /**
  * @brief      get 10base t half duplex status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get 10base t half duplex failed
@@ -641,8 +641,8 @@ uint8_t lan8720_get_10base_t_half_duplex(lan8720_handle_t *handle, lan8720_bool_
 
 /**
  * @brief      get 100base t2 full duplex status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get 100base t2 full duplex failed
@@ -654,8 +654,8 @@ uint8_t lan8720_get_100base_t2_full_duplex(lan8720_handle_t *handle, lan8720_boo
 
 /**
  * @brief      get 100base t2 half duplex status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get 100base t2 half duplex failed
@@ -667,8 +667,8 @@ uint8_t lan8720_get_100base_t2_half_duplex(lan8720_handle_t *handle, lan8720_boo
 
 /**
  * @brief      get extended status information status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get extended status information failed
@@ -680,8 +680,8 @@ uint8_t lan8720_get_extended_status_information(lan8720_handle_t *handle, lan872
 
 /**
  * @brief      get auto negotiate complete status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiate complete failed
@@ -693,8 +693,8 @@ uint8_t lan8720_get_auto_negotiate_complete(lan8720_handle_t *handle, lan8720_bo
 
 /**
  * @brief      get remote fault status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get remote fault failed
@@ -706,8 +706,8 @@ uint8_t lan8720_get_remote_fault(lan8720_handle_t *handle, lan8720_bool_t *enabl
 
 /**
  * @brief      get auto negotiate ability status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiate ability failed
@@ -719,8 +719,8 @@ uint8_t lan8720_get_auto_negotiate_ability(lan8720_handle_t *handle, lan8720_boo
 
 /**
  * @brief      get link status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *status points to a status buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *status pointer to a status buffer
  * @return     status code
  *             - 0 success
  *             - 1 get link status failed
@@ -732,8 +732,8 @@ uint8_t lan8720_get_link_status(lan8720_handle_t *handle, lan8720_link_t *status
 
 /**
  * @brief      get jabber detect status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get jabber detect failed
@@ -745,8 +745,8 @@ uint8_t lan8720_get_jabber_detect(lan8720_handle_t *handle, lan8720_bool_t *enab
 
 /**
  * @brief      get extended capabilities status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get extended capabilities failed
@@ -769,10 +769,10 @@ uint8_t lan8720_get_extended_capabilities(lan8720_handle_t *handle, lan8720_bool
 
 /**
  * @brief     set identifier
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] phy_id is the phy id
- * @param[in] model_number is the model number
- * @param[in] revision_number is the revision number
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] phy_id physical id
+ * @param[in] model_number model number
+ * @param[in] revision_number revision number
  * @return     status code
  *             - 0 success
  *             - 1 set identifier failed
@@ -788,10 +788,10 @@ uint8_t lan8720_set_identifier(lan8720_handle_t *handle, uint32_t phy_id,
 
 /**
  * @brief      get identifier
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *phy_id points to a phy id buffer
- * @param[out] *model_number points to an model number buffer
- * @param[out] *revision_number points to a revision number buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *phy_id pointer to a phy id buffer
+ * @param[out] *model_number pointer to an model number buffer
+ * @param[out] *revision_number pointer to a revision number buffer
  * @return     status code
  *             - 0 success
  *             - 1 get identifier failed
@@ -804,8 +804,8 @@ uint8_t lan8720_get_identifier(lan8720_handle_t *handle, uint32_t *phy_id,
 
 /**
  * @brief     enable or disable auto negotiation advertisement remote fault
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set auto negotiation advertisement remote fault failed
@@ -817,8 +817,8 @@ uint8_t lan8720_set_auto_negotiation_advertisement_remote_fault(lan8720_handle_t
 
 /**
  * @brief      get auto negotiation advertisement remote fault status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation advertisement remote fault failed
@@ -830,8 +830,8 @@ uint8_t lan8720_get_auto_negotiation_advertisement_remote_fault(lan8720_handle_t
 
 /**
  * @brief     set auto negotiation advertisement pause
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] pause is the set pause
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] pause set pause
  * @return    status code
  *            - 0 success
  *            - 1 set_auto negotiation advertisement pause failed
@@ -843,8 +843,8 @@ uint8_t lan8720_set_auto_negotiation_advertisement_pause(lan8720_handle_t *handl
 
 /**
  * @brief      get auto negotiation advertisement pause
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *pause points to a pause buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *pause pointer to a pause buffer
  * @return     status code
  *             - 0 success
  *             - 1 get_auto negotiation advertisement pause failed
@@ -856,8 +856,8 @@ uint8_t lan8720_get_auto_negotiation_advertisement_pause(lan8720_handle_t *handl
 
 /**
  * @brief     enable or disable auto negotiation advertisement 100base tx full duplex
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set auto negotiation advertisement 100base tx full duplex failed
@@ -869,8 +869,8 @@ uint8_t lan8720_set_auto_negotiation_advertisement_100base_tx_full_duplex(lan872
 
 /**
  * @brief      get auto negotiation advertisement 100base tx full duplex status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation advertisement 100base tx full duplex failed
@@ -882,8 +882,8 @@ uint8_t lan8720_get_auto_negotiation_advertisement_100base_tx_full_duplex(lan872
 
 /**
  * @brief     enable or disable auto negotiation advertisement 100base tx
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set auto negotiation advertisement 100base tx failed
@@ -895,8 +895,8 @@ uint8_t lan8720_set_auto_negotiation_advertisement_100base_tx(lan8720_handle_t *
 
 /**
  * @brief      get auto negotiation advertisement 100base tx status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation advertisement 100base tx failed
@@ -908,8 +908,8 @@ uint8_t lan8720_get_auto_negotiation_advertisement_100base_tx(lan8720_handle_t *
 
 /**
  * @brief     enable or disable auto negotiation advertisement 10base t full duplex
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set auto negotiation advertisement 10base t full duplex failed
@@ -921,8 +921,8 @@ uint8_t lan8720_set_auto_negotiation_advertisement_10base_t_full_duplex(lan8720_
 
 /**
  * @brief      get auto negotiation advertisement 10base t full duplex status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation advertisement 10base t full duplex failed
@@ -934,8 +934,8 @@ uint8_t lan8720_get_auto_negotiation_advertisement_10base_t_full_duplex(lan8720_
 
 /**
  * @brief     enable or disable auto negotiation advertisement 10base t
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set auto negotiation advertisement 10base t failed
@@ -947,8 +947,8 @@ uint8_t lan8720_set_auto_negotiation_advertisement_10base_t(lan8720_handle_t *ha
 
 /**
  * @brief      get auto negotiation advertisement 10base t status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation advertisement 10base t failed
@@ -960,8 +960,8 @@ uint8_t lan8720_get_auto_negotiation_advertisement_10base_t(lan8720_handle_t *ha
 
 /**
  * @brief     set auto negotiation advertisement selector field
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] selector is the set selector
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] selector set selector
  * @return    status code
  *            - 0 success
  *            - 1 set auto negotiation advertisement selector field failed
@@ -974,8 +974,8 @@ uint8_t lan8720_set_auto_negotiation_advertisement_selector_field(lan8720_handle
 
 /**
  * @brief      get auto negotiation advertisement selector field
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *selector points to a selector buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *selector pointer to a selector buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation advertisement selector field failed
@@ -987,8 +987,8 @@ uint8_t lan8720_get_auto_negotiation_advertisement_selector_field(lan8720_handle
 
 /**
  * @brief      get auto negotiation link partner ability next page status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation link partner ability next page failed
@@ -1000,8 +1000,8 @@ uint8_t lan8720_get_auto_negotiation_link_partner_ability_next_page(lan8720_hand
 
 /**
  * @brief      get auto negotiation link partner ability acknowledge status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation link partner ability acknowledge failed
@@ -1013,8 +1013,8 @@ uint8_t lan8720_get_auto_negotiation_link_partner_ability_acknowledge(lan8720_ha
 
 /**
  * @brief      get auto negotiation link partner ability remote fault status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation link partner ability remote fault failed
@@ -1026,8 +1026,8 @@ uint8_t lan8720_get_auto_negotiation_link_partner_ability_remote_fault(lan8720_h
 
 /**
  * @brief      get auto negotiation link partner ability pause status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation link partner ability pause failed
@@ -1039,8 +1039,8 @@ uint8_t lan8720_get_auto_negotiation_link_partner_ability_pause(lan8720_handle_t
 
 /**
  * @brief      get auto negotiation link partner ability 100base t4 status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation link partner ability 100base t4 failed
@@ -1052,8 +1052,8 @@ uint8_t lan8720_get_auto_negotiation_link_partner_ability_100base_t4(lan8720_han
 
 /**
  * @brief      get auto negotiation link partner ability 100base tx full duplex status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation link partner ability 100base tx full duplex failed
@@ -1065,8 +1065,8 @@ uint8_t lan8720_get_auto_negotiation_link_partner_ability_100base_tx_full_duplex
 
 /**
  * @brief      get auto negotiation link partner ability 100base tx status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation link partner ability 100base tx failed
@@ -1078,8 +1078,8 @@ uint8_t lan8720_get_auto_negotiation_link_partner_ability_100base_tx(lan8720_han
 
 /**
  * @brief      get auto negotiation link partner ability 10base t full duplex status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation link partner ability 10base t full duplex failed
@@ -1091,8 +1091,8 @@ uint8_t lan8720_get_auto_negotiation_link_partner_ability_10base_t_full_duplex(l
 
 /**
  * @brief      get auto negotiation link partner ability 10base t status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation link partner ability 10base t failed
@@ -1104,8 +1104,8 @@ uint8_t lan8720_get_auto_negotiation_link_partner_ability_10base_t(lan8720_handl
 
 /**
  * @brief      get auto negotiation link partner ability selector field
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *selector points to a selector buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *selector pointer to a selector buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation link partner ability selector field failed
@@ -1117,8 +1117,8 @@ uint8_t lan8720_get_auto_negotiation_link_partner_ability_selector_field(lan8720
 
 /**
  * @brief      get auto negotiation expansion parallel detection fault status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation expansion parallel detection fault failed
@@ -1130,8 +1130,8 @@ uint8_t lan8720_get_auto_negotiation_expansion_parallel_detection_fault(lan8720_
 
 /**
  * @brief      get auto negotiation expansion link partner next page able status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation expansion link partner next page able failed
@@ -1143,8 +1143,8 @@ uint8_t lan8720_get_auto_negotiation_expansion_link_partner_next_page_able(lan87
 
 /**
  * @brief      get auto negotiation expansion next page able status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation expansion next page able failed
@@ -1156,8 +1156,8 @@ uint8_t lan8720_get_auto_negotiation_expansion_next_page_able(lan8720_handle_t *
 
 /**
  * @brief      get auto negotiation expansion page received status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation expansion page received failed
@@ -1169,8 +1169,8 @@ uint8_t lan8720_get_auto_negotiation_expansion_page_received(lan8720_handle_t *h
 
 /**
  * @brief      get auto negotiation expansion link partner auto negotiation able status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation expansion link partner auto negotiation able failed
@@ -1182,8 +1182,8 @@ uint8_t lan8720_get_auto_negotiation_expansion_link_partner_auto_negotiation_abl
 
 /**
  * @brief     enable or disable energy detect power down mode
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set energy detect power down mode failed
@@ -1195,8 +1195,8 @@ uint8_t lan8720_set_energy_detect_power_down_mode(lan8720_handle_t *handle, lan8
 
 /**
  * @brief      get energy detect power down mode status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get energy detect power down mode failed
@@ -1208,8 +1208,8 @@ uint8_t lan8720_get_energy_detect_power_down_mode(lan8720_handle_t *handle, lan8
 
 /**
  * @brief     enable or disable far loop back
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set far loop back failed
@@ -1221,8 +1221,8 @@ uint8_t lan8720_set_far_loop_back(lan8720_handle_t *handle, lan8720_bool_t enabl
 
 /**
  * @brief      get far loop back status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get far loop back failed
@@ -1234,8 +1234,8 @@ uint8_t lan8720_get_far_loop_back(lan8720_handle_t *handle, lan8720_bool_t *enab
 
 /**
  * @brief     enable or disable alternate interrupt mode
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set alternate interrupt mode failed
@@ -1247,8 +1247,8 @@ uint8_t lan8720_set_alternate_interrupt_mode(lan8720_handle_t *handle, lan8720_b
 
 /**
  * @brief      get alternate interrupt mode status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get alternate interrupt mode failed
@@ -1260,8 +1260,8 @@ uint8_t lan8720_get_alternate_interrupt_mode(lan8720_handle_t *handle, lan8720_b
 
 /**
  * @brief      get energy detected status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get energy detected failed
@@ -1273,8 +1273,8 @@ uint8_t lan8720_get_energy_detected(lan8720_handle_t *handle, lan8720_bool_t *en
 
 /**
  * @brief     set mode
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] mode is the set mode
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] mode set mode
  * @return    status code
  *            - 0 success
  *            - 1 set mode failed
@@ -1286,8 +1286,8 @@ uint8_t lan8720_set_mode(lan8720_handle_t *handle, lan8720_mode_t mode);
 
 /**
  * @brief      get mode
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *mode points to a mode buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *mode pointer to a mode buffer
  * @return     status code
  *             - 0 success
  *             - 1 get mode failed
@@ -1299,8 +1299,8 @@ uint8_t lan8720_get_mode(lan8720_handle_t *handle, lan8720_mode_t *mode);
 
 /**
  * @brief     set phy address
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] addr is the phy address
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] addr physical address
  * @return    status code
  *            - 0 success
  *            - 1 set phy address failed
@@ -1313,8 +1313,8 @@ uint8_t lan8720_set_phy_address(lan8720_handle_t *handle, uint8_t addr);
 
 /**
  * @brief      get phy address
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *addr points to a phy address buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *addr pointer to a phy address buffer
  * @return     status code
  *             - 0 success
  *             - 1 get phy address failed
@@ -1326,8 +1326,8 @@ uint8_t lan8720_get_phy_address(lan8720_handle_t *handle, uint8_t *addr);
 
 /**
  * @brief      get symbol error counter
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *cnt points to a counter buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *cnt pointer to a counter buffer
  * @return     status code
  *             - 0 success
  *             - 1 get symbol error counter failed
@@ -1339,8 +1339,8 @@ uint8_t lan8720_get_symbol_error_counter(lan8720_handle_t *handle, uint16_t *cnt
 
 /**
  * @brief     enable or disable auto mdix
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set auto mdix failed
@@ -1352,8 +1352,8 @@ uint8_t lan8720_set_auto_mdix(lan8720_handle_t *handle, lan8720_bool_t enable);
 
 /**
  * @brief      get auto mdix status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto mdix failed
@@ -1365,8 +1365,8 @@ uint8_t lan8720_get_auto_mdix(lan8720_handle_t *handle, lan8720_bool_t *enable);
 
 /**
  * @brief     set manual channel select
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] select is the manual channel select
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] select manual channel select
  * @return    status code
  *            - 0 success
  *            - 1 set manual channel select failed
@@ -1378,8 +1378,8 @@ uint8_t lan8720_set_manual_channel_select(lan8720_handle_t *handle, lan8720_manu
 
 /**
  * @brief      get manual channel select
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *select points to a manual channel select buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *select pointer to a manual channel select buffer
  * @return     status code
  *             - 0 success
  *             - 1 get manual channel select failed
@@ -1391,8 +1391,8 @@ uint8_t lan8720_get_manual_channel_select(lan8720_handle_t *handle, lan8720_manu
 
 /**
  * @brief     enable or disable sqe test off
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set sqe test off failed
@@ -1404,8 +1404,8 @@ uint8_t lan8720_set_sqe_test_off(lan8720_handle_t *handle, lan8720_bool_t enable
 
 /**
  * @brief      get sqe test off status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get sqe test off failed
@@ -1417,8 +1417,8 @@ uint8_t lan8720_get_sqe_test_off(lan8720_handle_t *handle, lan8720_bool_t *enabl
 
 /**
  * @brief     set polarity
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] polarity is the set polarity
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] polarity set polarity
  * @return    status code
  *            - 0 success
  *            - 1 set polarity failed
@@ -1430,8 +1430,8 @@ uint8_t lan8720_set_polarity(lan8720_handle_t *handle, lan8720_polarity_t polari
 
 /**
  * @brief      get polarity
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *polarity points to a polarity buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *polarity pointer to a polarity buffer
  * @return     status code
  *             - 0 success
  *             - 1 get polarity failed
@@ -1443,9 +1443,9 @@ uint8_t lan8720_get_polarity(lan8720_handle_t *handle, lan8720_polarity_t *polar
 
 /**
  * @brief      get interrupt flag status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[in]  interrupt is the set interrupt
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[in]  interrupt set interrupt
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get interrupt flag failed
@@ -1457,9 +1457,9 @@ uint8_t lan8720_get_interrupt_flag(lan8720_handle_t *handle, lan8720_interrupt_t
 
 /**
  * @brief     set interrupt mask
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] interrupt is the set interrupt
- * @param[in] enable is a bool value
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] interrupt set interrupt
+ * @param[in] enable bool value
  * @return    status code
  *            - 0 success
  *            - 1 set interrupt mask failed
@@ -1471,9 +1471,9 @@ uint8_t lan8720_set_interrupt_mask(lan8720_handle_t *handle, lan8720_interrupt_t
 
 /**
  * @brief      get interrupt mask status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[in]  interrupt is the set interrupt
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[in]  interrupt set interrupt
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get interrupt mask failed
@@ -1485,8 +1485,8 @@ uint8_t lan8720_get_interrupt_mask(lan8720_handle_t *handle, lan8720_interrupt_t
 
 /**
  * @brief      get auto negotiation done status
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *enable points to a bool value buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
  *             - 1 get auto negotiation done failed
@@ -1498,8 +1498,8 @@ uint8_t lan8720_get_auto_negotiation_done(lan8720_handle_t *handle, lan8720_bool
 
 /**
  * @brief      get speed indication
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[out] *speed points to a speed buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[out] *speed pointer to a speed buffer
  * @return     status code
  *             - 0 success
  *             - 1 get speed indication failed
@@ -1522,9 +1522,9 @@ uint8_t lan8720_get_speed_indication(lan8720_handle_t *handle, lan8720_speed_ind
 
 /**
  * @brief     set the chip register
- * @param[in] *handle points to an lan8720 handle structure
- * @param[in] reg is the register address
- * @param[in] value is the data written to the register
+ * @param[in] *handle pointer to an lan8720 handle structure
+ * @param[in] reg register address
+ * @param[in] value written value
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -1537,9 +1537,9 @@ uint8_t lan8720_set_reg(lan8720_handle_t *handle, uint8_t reg, uint16_t value);
 
 /**
  * @brief      get the chip register
- * @param[in]  *handle points to an lan8720 handle structure
- * @param[in]  reg is the register address
- * @param[out] *value points to a read data buffer
+ * @param[in]  *handle pointer to an lan8720 handle structure
+ * @param[in]  reg register address
+ * @param[out] *value pointer to a read data buffer
  * @return     status code
  *             - 0 success
  *             - 1 read failed

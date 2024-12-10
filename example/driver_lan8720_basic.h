@@ -58,7 +58,7 @@ extern "C"{
 
 /**
  * @brief     basic example init
- * @param[in] addr is the device address
+ * @param[in] addr device address
  * @return    status code
  *            - 0 success
  *            - 1 init failed
@@ -77,7 +77,7 @@ uint8_t lan8720_basic_deinit(void);
 
 /**
  * @brief      basic example get link status
- * @param[out] *status points to a status buffer
+ * @param[out] *status pointer to a status buffer
  * @return     status code
  *             - 0 success
  *             - 1 link status failed
@@ -89,7 +89,7 @@ uint8_t lan8720_basic_link_status(lan8720_link_t *status);
 
 /**
  * @brief      basic example auto negotiation
- * @param[out] *speed points to a speed indication buffer
+ * @param[out] *speed pointer to a speed indication buffer
  * @return     status code
  *             - 0 success
  *             - 1 auto negotiation failed
