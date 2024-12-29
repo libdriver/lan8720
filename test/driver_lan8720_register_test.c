@@ -41,7 +41,7 @@ static lan8720_handle_t gs_handle;        /**< lan8720 handle */
 
 /**
  * @brief     register test
- * @param[in] addr is the device address
+ * @param[in] addr device address
  * @return    status code
  *            - 0 success
  *            - 1 test failed

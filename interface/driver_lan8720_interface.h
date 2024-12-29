@@ -70,9 +70,9 @@ uint8_t lan8720_interface_smi_deinit(void);
 
 /**
  * @brief      interface smi bus read
- * @param[in]  addr is the device address
- * @param[in]  reg is the register address
- * @param[out] *data points to a data buffer
+ * @param[in]  addr device address
+ * @param[in]  reg register address
+ * @param[out] *data pointer to a data buffer
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -82,9 +82,9 @@ uint8_t lan8720_interface_smi_read(uint8_t addr, uint8_t reg, uint16_t *data);
 
 /**
  * @brief     interface smi bus write
- * @param[in] addr is the device address
- * @param[in] reg is the register address
- * @param[in] data is the set data
+ * @param[in] addr device address
+ * @param[in] reg register address
+ * @param[in] data set data
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -112,7 +112,7 @@ uint8_t lan8720_interface_reset_gpio_deinit(void);
 
 /**
  * @brief     interface reset gpio write
- * @param[in] level is the set level
+ * @param[in] level set level
  * @return    status code
  *            - 0 success
  *            - 1 reset gpio write failed
@@ -122,14 +122,14 @@ uint8_t lan8720_interface_reset_gpio_write(uint8_t level);
 
 /**
  * @brief     interface delay ms
- * @param[in] ms
+ * @param[in] ms time
  * @note      none
  */
 void lan8720_interface_delay_ms(uint32_t ms);
 
 /**
  * @brief     interface print format data
- * @param[in] fmt is the format data
+ * @param[in] fmt format data
  * @note      none
  */
 void lan8720_interface_debug_print(const char *const fmt, ...);
