@@ -51,7 +51,7 @@
 
 /**
  * @brief     eth init
- * @param[in] *mac points to a mac buffer
+ * @param[in] *mac pointer to a mac buffer
  * @return    status code
  *            - 0 success
  *            - 1 init failed
@@ -79,9 +79,9 @@ uint8_t eth_deinit(void);
 
 /**
  * @brief     eth write
- * @param[in] *tx_buffer points to ETH_BufferTypeDef structure
- * @param[in] *data points to a data buffer
- * @param[in] len is the set length
+ * @param[in] *tx_buffer pointer to ETH_BufferTypeDef structure
+ * @param[in] *data pointer to a data buffer
+ * @param[in] len set length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -91,9 +91,9 @@ uint8_t eth_write(ETH_BufferTypeDef *tx_buffer, void *data, uint32_t len);
 
 /**
  * @brief      eth phy read
- * @param[in]  addr is the device address
- * @param[in]  reg is the register address
- * @param[out] *data points to a data buffer
+ * @param[in]  addr device address
+ * @param[in]  reg register address
+ * @param[out] *data pointer to a data buffer
  * @return     status code
  *             - 0 success
  *             - 1 read failed
@@ -103,9 +103,9 @@ uint8_t eth_read_phy(uint8_t addr, uint8_t reg, uint16_t *data);
 
 /**
  * @brief     eth phy write
- * @param[in] addr is the device waddress
- * @param[in] reg is the register address
- * @param[in] data is the set data
+ * @param[in] addr device waddress
+ * @param[in] reg register address
+ * @param[in] data set data
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -115,7 +115,7 @@ uint8_t eth_write_phy(uint8_t addr, uint8_t reg, uint16_t data);
 
 /**
  * @brief  eth get the handle
- * @return points to an eth handle
+ * @return pointer to an eth handle
  * @note   none
  */
 ETH_HandleTypeDef* eth_get_handle(void);
