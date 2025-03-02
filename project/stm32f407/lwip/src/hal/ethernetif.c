@@ -64,7 +64,7 @@ static uint8_t gs_addr = 0x01;
 
 /**
  * @brief     set phy address
- * @param[in] addr is the device address
+ * @param[in] addr device address
  * @note      none
  */
 void eth_set_address(uint8_t addr)

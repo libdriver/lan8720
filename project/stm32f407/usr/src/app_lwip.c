@@ -72,7 +72,7 @@ uint32_t ethernet_link_timer;
 
 /**
  * @brief netif get handle
- * @return points to a netif buffer
+ * @return pointer to a netif buffer
  */
 struct netif *netif_get_handle(void)
 {
@@ -81,7 +81,7 @@ struct netif *netif_get_handle(void)
 
 /**
  * @brief ethernet link status updated
- * @param *netif points to a netif struct
+ * @param *netif pointer to a netif struct
  */
 static void ethernet_link_status_updated(struct netif *netif)
 {
