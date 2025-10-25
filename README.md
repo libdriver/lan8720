@@ -10,7 +10,7 @@
 
 The LAN8720A/LAN8720Ai is a low-power 10BASE-T/100BASE-TX physical layer (PHY) transceiver with variable I/O voltage that is compliant with the IEEE 802.3-2005 standards.The LAN8720A/LAN8720Ai supports communication with an Ethernet MAC via a standard RMII interface. It contains a full-duplex 10-BASE-T/100BASE-TX transceiver and supports 10Mbps (10BASE-T) and 100Mbps (100BASE-TX) operation. The LAN8720A/LAN8720Ai implements auto-negotiation to automatically determine the best possible speed and duplex mode of operation. HP Auto-MDIX support allows the use of direct connect or cross-over LAN cables.
 
-LibDriver LAN8720 is a full-featured driver of LAN8720 launched by LibDriver.LibDriver LAN8720 provides basic configuration, auto negotiation and other functions. LibDriver is MISRA compliant.
+LibDriver LAN8720 is a full-featured driver for LAN8720, launched by LibDriver.It provides basic configuration, auto negotiation and additional features. LibDriver is MISRA compliant.
 
 ### Table of Contents
 

@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "LibDriver LAN8720", "index.html", [
-    [ "Modules", "modules.html", "modules" ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -51,9 +51,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"group__lan8720__advance__driver.html#gga587ca079b56a10753a1ad4852c85f28ca04dd85e6c353900cbfa8858599d789b7",
-"group__lan8720__link__driver.html#gae7f5959241e0166d5282588ae58e9933"
+"structlan8720__handle__s.html#ad7ec159f16e9039de96ccdd71096ab62"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';
