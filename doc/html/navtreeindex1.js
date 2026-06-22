@@ -1,6 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"structlan8720__handle__s.html#ad7ec159f16e9039de96ccdd71096ab62":[0,0,2,0,9],
 "structlan8720__handle__s.html#adc69ca9c1de22dda342a9b1e2226a11e":[0,0,2,0,5],
 "structlan8720__info__s.html":[0,0,2,1],
 "structlan8720__info__s.html#a3366a5dce9b829e03c3d321c2b4df3f6":[0,0,2,1,7],

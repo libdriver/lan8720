@@ -153,7 +153,6 @@ var driver__lan8720_8h =
     [ "lan8720_set_manual_channel_select", "group__lan8720__advance__driver.html#gaa3d3d038df18c390d3e2d0941e51ccf8", null ],
     [ "lan8720_set_mode", "group__lan8720__advance__driver.html#gaa26bfb84d19a585c95980750b92b9728", null ],
     [ "lan8720_set_phy_address", "group__lan8720__advance__driver.html#ga7b33e7e3fbdeb3c6c268dca22470351e", null ],
-    [ "lan8720_set_polarity", "group__lan8720__advance__driver.html#ga94abbb377f8750bce2d9fcfd1bdafc31", null ],
     [ "lan8720_set_power_down", "group__lan8720__base__driver.html#gad69f3ba14f8bc3931b02290d8a7c37a1", null ],
     [ "lan8720_set_reg", "group__lan8720__extend__driver.html#ga2b650f870029a07dbde7b13f0bf5d490", null ],
     [ "lan8720_set_restart_auto_negotiate", "group__lan8720__base__driver.html#ga7760ee0f13e42c84743b1ab113f35d91", null ],

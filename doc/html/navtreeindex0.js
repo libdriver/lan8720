@@ -101,7 +101,6 @@ var NAVTREEINDEX0 =
 "group__lan8720__advance__driver.html#ga88a1bf16841db58f0001735a7a8538a1":[0,0,2,37],
 "group__lan8720__advance__driver.html#ga915a37e70ac523d30e99ba987fac7e47":[0,0,2,59],
 "group__lan8720__advance__driver.html#ga91b2c73d72c9c26008c0e9afb8cace60":[0,0,2,25],
-"group__lan8720__advance__driver.html#ga94abbb377f8750bce2d9fcfd1bdafc31":[0,0,2,64],
 "group__lan8720__advance__driver.html#ga9795cf2ad03680739169e7bd9879349f":[0,0,2,58],
 "group__lan8720__advance__driver.html#ga9fccaec2bdf4f2760609e8813ac0a82f":[0,0,2,38],
 "group__lan8720__advance__driver.html#gaa26bfb84d19a585c95980750b92b9728":[0,0,2,62],
@@ -126,7 +125,7 @@ var NAVTREEINDEX0 =
 "group__lan8720__advance__driver.html#gaeed0a3c8ff8660c99949979dc1e2026c":[0,0,2,42],
 "group__lan8720__advance__driver.html#gaf234e2745391f09b99645f8051cad8fc":[0,0,2,14],
 "group__lan8720__advance__driver.html#gaf73b649c5f17c17ccb06a145ad64e076":[0,0,2,7],
-"group__lan8720__advance__driver.html#gaf91d4053230952f54471597de6239308":[0,0,2,65],
+"group__lan8720__advance__driver.html#gaf91d4053230952f54471597de6239308":[0,0,2,64],
 "group__lan8720__advance__driver.html#gga3f7e2d27370a5da1983de449b835dc56a29f04747a81b7145848b9f32ab8c7999":[0,0,2,8,1],
 "group__lan8720__advance__driver.html#gga3f7e2d27370a5da1983de449b835dc56ac29283b9eb9056db9acb5dda8035897a":[0,0,2,8,0],
 "group__lan8720__advance__driver.html#gga587ca079b56a10753a1ad4852c85f28ca04dd85e6c353900cbfa8858599d789b7":[0,0,2,6,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "structlan8720__handle__s.html#a4d8756b07b9ae36c83ef3f358dcc47ce":[0,0,2,0,8],
 "structlan8720__handle__s.html#a69c42ff05fc69e3f1621f3c0347a840b":[0,0,2,0,3],
 "structlan8720__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b":[0,0,2,0,0],
-"structlan8720__handle__s.html#aa264e23f5c4ddd7a9bfa5cd9e387e013":[0,0,2,0,4]
+"structlan8720__handle__s.html#aa264e23f5c4ddd7a9bfa5cd9e387e013":[0,0,2,0,4],
+"structlan8720__handle__s.html#ad7ec159f16e9039de96ccdd71096ab62":[0,0,2,0,9]
 };

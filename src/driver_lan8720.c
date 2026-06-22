@@ -328,8 +328,15 @@ uint8_t lan8720_deinit(lan8720_handle_t *handle)
 
         return 4;                                                                   /* return error */
     }
+    config &= ~(1 << 12);                                                           /* clear config */
+    if (a_lan8720_smi_write(handle, LAN8720_REG_BASIC_CONTROL, config) != 0)        /* write basic control */
+    {
+        handle->debug_print("lan8720: reset failed.\n");                            /* reset failed */
+
+        return 4;                                                                   /* return error */
+    }
     config &= ~(1 << 11);                                                           /* clear config */
-    config |= 1 << 11;                                                              /* set soft reset */
+    config |= 1 << 11;                                                              /* set power down */
     if (a_lan8720_smi_write(handle, LAN8720_REG_BASIC_CONTROL, config) != 0)        /* write basic control */
     {
         handle->debug_print("lan8720: reset failed.\n");                            /* reset failed */
@@ -389,6 +396,10 @@ uint8_t lan8720_set_soft_reset(lan8720_handle_t *handle, lan8720_bool_t enable)
     }
     config &= ~(1 << 15);                                                        /* clear config */
     config |= enable << 15;                                                      /* set bool */
+    if (enable == LAN8720_BOOL_TRUE)                                             /* check command */
+    {
+        config = 0x8000U;                                                        /* set command */
+    }
     res = a_lan8720_smi_write(handle, LAN8720_REG_BASIC_CONTROL, config);        /* write basic control */
     if (res != 0)                                                                /* check result */
     {
@@ -715,6 +726,16 @@ uint8_t lan8720_set_power_down(lan8720_handle_t *handle, lan8720_bool_t enable)
 
         return 1;                                                                /* return error */
     }
+    
+    config &= ~(1 << 12);                                                        /* clear config */
+    res = a_lan8720_smi_write(handle, LAN8720_REG_BASIC_CONTROL, config);        /* write basic control */
+    if (res != 0)                                                                /* check result */
+    {
+        handle->debug_print("lan8720: write basic control failed.\n");           /* write basic control failed */
+
+        return 1;                                                                /* return error */
+    }
+    
     config &= ~(1 << 11);                                                        /* clear config */
     config |= enable << 11;                                                      /* set bool */
     res = a_lan8720_smi_write(handle, LAN8720_REG_BASIC_CONTROL, config);        /* write basic control */
@@ -3310,7 +3331,7 @@ uint8_t lan8720_set_auto_mdix(lan8720_handle_t *handle, lan8720_bool_t enable)
         return 1;                                                                                     /* return error */
     }
     config &= ~(1 << 15);                                                                             /* clear config */
-    config |= enable << 15;                                                                           /* set bool */
+    config |= (!enable) << 15;                                                                        /* set bool */
     res = a_lan8720_smi_write(handle, LAN8720_REG_SPECIAL_CONTROL_STATUS_INDICATIONS, config);        /* write control status indication */
     if (res != 0)                                                                                     /* check result */
     {
@@ -3354,7 +3375,7 @@ uint8_t lan8720_get_auto_mdix(lan8720_handle_t *handle, lan8720_bool_t *enable)
 
         return 1;                                                                                     /* return error */
     }
-    *enable = (lan8720_bool_t)((config >> 15) & 0x01);                                                /* get the bool */
+    *enable = (lan8720_bool_t)(!((config >> 15) & 0x01));                                             /* get the bool */
 
     return 0;                                                                                         /* success return 0 */
 }
