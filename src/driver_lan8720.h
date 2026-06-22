@@ -1416,19 +1416,6 @@ uint8_t lan8720_set_sqe_test_off(lan8720_handle_t *handle, lan8720_bool_t enable
 uint8_t lan8720_get_sqe_test_off(lan8720_handle_t *handle, lan8720_bool_t *enable);
 
 /**
- * @brief     set polarity
- * @param[in] *handle pointer to an lan8720 handle structure
- * @param[in] polarity set polarity
- * @return    status code
- *            - 0 success
- *            - 1 set polarity failed
- *            - 2 handle is NULL
- *            - 3 handle is not initialized
- * @note      none
- */
-uint8_t lan8720_set_polarity(lan8720_handle_t *handle, lan8720_polarity_t polarity);
-
-/**
  * @brief      get polarity
  * @param[in]  *handle pointer to an lan8720 handle structure
  * @param[out] *polarity pointer to a polarity buffer
