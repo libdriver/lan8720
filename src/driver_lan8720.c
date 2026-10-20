@@ -168,6 +168,7 @@ uint8_t lan8720_get_address(lan8720_handle_t *handle, uint8_t *addr)
  */
 uint8_t lan8720_init(lan8720_handle_t *handle)
 {
+    uint8_t i;
     uint16_t config;
 
     if (handle == NULL)                                                             /* check handle */
@@ -257,16 +258,7 @@ uint8_t lan8720_init(lan8720_handle_t *handle)
         return 1;                                                                   /* return error */
     }
 
-    if (a_lan8720_smi_read(handle, LAN8720_REG_BASIC_CONTROL, &config) != 0)        /* read basic control */
-    {
-        handle->debug_print("lan8720: reset failed.\n");                            /* reset failed */
-        (void)handle->smi_deinit();                                                 /* smi deinit */
-        (void)handle->reset_gpio_deinit();                                          /* reset gpio deinit */
-
-        return 4;                                                                   /* return error */
-    }
-    config &= ~(1 << 15);                                                           /* clear config */
-    config |= 1 << 15;                                                              /* set soft reset */
+    config = 0x8000U;                                                               /* set soft reset */
     if (a_lan8720_smi_write(handle, LAN8720_REG_BASIC_CONTROL, config) != 0)        /* write basic control */
     {
         handle->debug_print("lan8720: reset failed.\n");                            /* reset failed */
@@ -275,16 +267,23 @@ uint8_t lan8720_init(lan8720_handle_t *handle)
 
         return 4;                                                                   /* return error */
     }
-    handle->delay_ms(50);                                                           /* delay 50 ms */
-    if (a_lan8720_smi_read(handle, LAN8720_REG_BASIC_CONTROL, &config) != 0)        /* read basic control */
+    for (i = 0; i < 10; i++)                                                        /* loop */
     {
-        handle->debug_print("lan8720: reset failed.\n");                            /* reset failed */
-        (void)handle->smi_deinit();                                                 /* smi deinit */
-        (void)handle->reset_gpio_deinit();                                          /* reset gpio deinit */
+        handle->delay_ms(50);                                                       /* delay 50 ms */
+        if (a_lan8720_smi_read(handle, LAN8720_REG_BASIC_CONTROL, &config) != 0)    /* read basic control */
+        {
+            handle->debug_print("lan8720: reset failed.\n");                        /* reset failed */
+            (void)handle->smi_deinit();                                             /* smi deinit */
+            (void)handle->reset_gpio_deinit();                                      /* reset gpio deinit */
 
-        return 4;                                                                   /* return error */
+            return 4;                                                               /* return error */
+        }
+        if ((config & (1 << 15)) == 0)                                              /* check config */
+        {
+            break;                                                                  /* break */
+        }
     }
-    if ((config & (1 <<15)) != 0)                                                   /* check self-clear bit */
+    if ((config & (1 << 15)) != 0)                                                  /* check self-clear bit */
     {
         handle->debug_print("lan8720: reset failed.\n");                            /* reset failed */
         (void)handle->smi_deinit();                                                 /* smi deinit */
@@ -727,13 +726,16 @@ uint8_t lan8720_set_power_down(lan8720_handle_t *handle, lan8720_bool_t enable)
         return 1;                                                                /* return error */
     }
     
-    config &= ~(1 << 12);                                                        /* clear config */
-    res = a_lan8720_smi_write(handle, LAN8720_REG_BASIC_CONTROL, config);        /* write basic control */
-    if (res != 0)                                                                /* check result */
+    if (enable == LAN8720_BOOL_TRUE)                                             /* true */
     {
-        handle->debug_print("lan8720: write basic control failed.\n");           /* write basic control failed */
+        config &= ~(1 << 12);                                                    /* clear config */
+        res = a_lan8720_smi_write(handle, LAN8720_REG_BASIC_CONTROL, config);    /* write basic control */
+        if (res != 0)                                                            /* check result */
+        {
+            handle->debug_print("lan8720: write basic control failed.\n");       /* write basic control failed */
 
-        return 1;                                                                /* return error */
+            return 1;                                                            /* return error */
+        }
     }
     
     config &= ~(1 << 11);                                                        /* clear config */
@@ -3124,6 +3126,7 @@ uint8_t lan8720_set_mode(lan8720_handle_t *handle, lan8720_mode_t mode)
     }
     config &= ~(0x07 << 5);                                                      /* clear config */
     config |= mode << 5;                                                         /* set mode */
+    config |= 0x4000U;                                                           /* set mask */
     res = a_lan8720_smi_write(handle, LAN8720_REG_SPECIAL_MODES, config);        /* write special modes */
     if (res != 0)                                                                /* check result */
     {
@@ -3213,6 +3216,7 @@ uint8_t lan8720_set_phy_address(lan8720_handle_t *handle, uint8_t addr)
     }
     config &= ~(0x1F << 0);                                                      /* clear config */
     config |= addr << 0;                                                         /* set addr */
+    config |= 0x4000U;                                                           /* set mask */
     res = a_lan8720_smi_write(handle, LAN8720_REG_SPECIAL_MODES, config);        /* write special modes */
     if (res != 0)                                                                /* check result */
     {
@@ -3220,6 +3224,7 @@ uint8_t lan8720_set_phy_address(lan8720_handle_t *handle, uint8_t addr)
 
         return 1;                                                                /* return error */
     }
+    handle->smi_addr = addr;                                                     /* set smi addr */
 
     return 0;                                                                    /* success return 0 */
 }

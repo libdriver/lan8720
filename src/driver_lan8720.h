@@ -168,7 +168,7 @@ typedef enum
     LAN8720_SPEED_INDICATION_10BASE_T_HALF_DUPLEX   = 0x01,        /**< 10base-t half duplex */
     LAN8720_SPEED_INDICATION_10BASE_T_FULL_DUPLEX   = 0x05,        /**< 10base-t full duplex */
     LAN8720_SPEED_INDICATION_100BASE_TX_HALF_DUPLEX = 0x02,        /**< 100base-tx half duplex */
-    LAN8720_SPEED_INDICATION_100BASE_TX_FULL_DUPLEX = 0x06,        /**< 100bae-tx full duplex */
+    LAN8720_SPEED_INDICATION_100BASE_TX_FULL_DUPLEX = 0x06,        /**< 100base-tx full duplex */
 } lan8720_speed_indication_t;
 
 /**
